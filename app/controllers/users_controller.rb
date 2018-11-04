@@ -3,6 +3,24 @@ class UsersController < ApplicationController
 
   # GET /users
   # GET /users.json
+  
+  def login_form
+  end
+  
+  def login
+    @user = User.find_by(email: params[:email],
+                         password: params[:password])
+    if @user
+      flash[:notice] = "ログインしました"
+      redirect_to("/post/index")
+    else
+      @error_message = "メールアドレスまたはパスワードが間違っています"
+      @email = params[:email]
+      @password = params[:password]
+      render("users/login_form")
+    end
+  end
+  
   def index
     @users = User.all
   end
