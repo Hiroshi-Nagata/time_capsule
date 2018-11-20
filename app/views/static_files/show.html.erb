@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mine type:</strong>
+  <%= @static_file.mine_type %>
+</p>
+
+<p>
+  <strong>File name:</strong>
+  <%= @static_file.file_name %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @static_file.data %>
+</p>
+
+<%= link_to 'Edit', edit_static_file_path(@static_file) %> |
+<%= link_to 'Back', static_files_path %>

@@ -1,0 +1,72 @@
+<%= form_with(model: content, local: true) do |form| %>
+  <% if content.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(content.errors.count, "error") %> prohibited this content from being saved:</h2>
+
+      <ul>
+      <% content.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :format %>
+    <%= form.text_field :format %>
+  </div>
+
+  <div class="field">
+    <%= form.label :movie_file_id %>
+    <%= form.number_field :movie_file_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :voice_file_id %>
+    <%= form.number_field :voice_file_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text %>
+    <%= form.text_area :text %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sender %>
+    <%= form.text_field :sender %>
+  </div>
+
+  <div class="field">
+    <%= form.label :send_at %>
+    <%= form.datetime_select :send_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :post_at %>
+    <%= form.datetime_select :post_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :received_at %>
+    <%= form.datetime_select :received_at %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

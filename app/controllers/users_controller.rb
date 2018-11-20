@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -6,18 +7,18 @@ class UsersController < ApplicationController
   
   def login_form
   end
-  
+
   def login
-    @user = User.find_by(email: params[:email],
-                         password: params[:password])
-    if @user
+    user = User.find_by(email: params[:email].downcase)
+    if user && user.authenticate(params[:password])
+      log_in user
       flash[:notice] = "ログインしました"
-      redirect_to("/post/index")
+      redirect_to("/")
     else
       @error_message = "メールアドレスまたはパスワードが間違っています"
       @email = params[:email]
       @password = params[:password]
-      render("users/login_form")
+      render :action => 'login_form'
     end
   end
   
@@ -28,6 +29,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+     @user = User.find(params[:id])
   end
 
   # GET /users/new

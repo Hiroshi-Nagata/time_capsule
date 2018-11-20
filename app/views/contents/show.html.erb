@@ -1,0 +1,62 @@
+
+<%= @user.name %>, <%= @user.email %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @content.user_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @content.title %>
+</p>
+
+<p>
+  <strong>Format:</strong>
+  <%= @content.format %>
+</p>
+
+<p>
+  <strong>Movie file:</strong>
+  <%= @content.movie_file_id %>
+</p>
+
+<p>
+  <strong>Voice file:</strong>
+  <%= @content.voice_file_id %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @content.text %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @content.address %>
+</p>
+
+<p>
+  <strong>Sender:</strong>
+  <%= @content.sender %>
+</p>
+
+<p>
+  <strong>Send at:</strong>
+  <%= @content.send_at %>
+</p>
+
+<p>
+  <strong>Post at:</strong>
+  <%= @content.post_at %>
+</p>
+
+<p>
+  <strong>Received at:</strong>
+  <%= @content.received_at %>
+</p>
+
+<%= link_to 'Edit', edit_content_path(@content) %> |
+<%= link_to 'Back', contents_path %>

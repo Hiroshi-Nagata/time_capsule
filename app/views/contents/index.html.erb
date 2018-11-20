@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Contents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Title</th>
+      <th>Format</th>
+      <th>Movie file</th>
+      <th>Voice file</th>
+      <th>Text</th>
+      <th>Address</th>
+      <th>Sender</th>
+      <th>Send at</th>
+      <th>Post at</th>
+      <th>Received at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contents.each do |content| %>
+      <tr>
+        <td><%= content.user_id %></td>
+        <td><%= content.title %></td>
+        <td><%= content.format %></td>
+        <td><%= content.movie_file_id %></td>
+        <td><%= content.voice_file_id %></td>
+        <td><%= content.text %></td>
+        <td><%= content.address %></td>
+        <td><%= content.sender %></td>
+        <td><%= content.send_at %></td>
+        <td><%= content.post_at %></td>
+        <td><%= content.received_at %></td>
+        <td><%= link_to 'Show', content %></td>
+        <td><%= link_to 'Edit', edit_content_path(content) %></td>
+        <td><%= link_to 'Destroy', content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Content', new_content_path %>

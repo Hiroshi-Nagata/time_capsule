@@ -1,0 +1,52 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  margin:0;
+}
+
+h1 {
+  font-size:140px;
+  padding-top:140px;
+  margin-top:0px;
+  opacity:0.9;
+}
+
+h2 {
+  padding-top:40px;
+  font-size:40px;
+  opacity:0.9;
+}
+
+p {
+  width:1460px;
+  margin:0 auto;
+  font-size:20px;
+  padding-top:40px;
+  opacity:0.9;
+}
+
+.top-wrapper {
+  color:white;
+  height:700px;
+  background-image:url(top.jpg);
+  background-size:(cover);
+  text-align:center;
+}
+
+.btn {
+  padding-top:40px;
+  font-size:20px;
+  display:inline-block;
+  
+}
+    .btn-signup {
+      color:red;
+    
+    }
+    .btn-login {
+      background-color:blue;
+    }
