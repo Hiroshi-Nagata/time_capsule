@@ -26,16 +26,14 @@
     <%= form.text_field :format %>
   </div>
 
-  <div class="field">
-    <%= form.label :movie_file_id %>
-    <%= form.number_field :movie_file_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :voice_file_id %>
-    <%= form.number_field :voice_file_id %>
-  </div>
-
+  <p>
+    <% if content.static_file.mime_type == 'video/mp4' %>
+      <video width="200px" src="<%= content.static_file.content_file.url %>"></video>
+    <% elsif content.static_file.mime_type == 'image/jpeg' %>
+      <img width="200px" src="<%= content.static_file.content_file.url %>" alt="アップロードした画像"></img>
+    <% end %>
+  </p>
+  
   <div class="field">
     <%= form.label :text %>
     <%= form.text_area :text %>

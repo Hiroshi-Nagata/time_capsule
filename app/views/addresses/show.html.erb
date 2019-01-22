@@ -1,24 +1,17 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>User:</strong>
-  <%= @address.user_id %>
-</p>
-
-<p>
-  <strong>Name:</strong>
+  <strong><%= tm :address, :name %>:</strong>
   <%= @address.name %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong><%= tm :address, :email %>:</strong>
   <%= @address.email %>
 </p>
 
 <p>
-  <strong>Telephone:</strong>
+  <strong><%= tm :address, :telephone %>:</strong>
   <%= @address.telephone %>
 </p>
 
-<%= link_to 'Edit', edit_address_path(@address) %> |
-<%= link_to 'Back', addresses_path %>
+<%= link_to '編集', edit_address_path(@address) %> | 
+<%= link_to '削除', address_path, method: :delete, data: { confirm: 'Are you sure?' } %>

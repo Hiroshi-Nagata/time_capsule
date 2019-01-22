@@ -1,12 +1,11 @@
 <% provide(:title, "Top") %>
 
-  <div class="top-wrapper">
+  <div class="header-top">
     <h1>Time Capsule</h1>
-    <h2>～未来の自分に動画を送ろう～</h2>
+    <h2>～未来の自分に動画を送ろう～</h2><br>
     <p>タイムカプセルとは、特定のメールアドレスやSNSアカウントに対し、指定した日付に動画やボイスなどのメッセージを自動で送ることができるサービスです。
-  今の自分の熱意や感情のこもったメッセージを未来の誰かに届けよう
-  </p>
-    <%= link_to "新規登録", signup_path, style: "color:white;", class: 'btn btn-signup' %><br>
-    <%= link_to "ログイン", login_path, style: "color:white;", class: 'btn btn-login' %>
+  今の自分の熱意や感情のこもったメッセージを未来の誰かに届けよう</p>
   
+    <%= link_to "新規登録", signup_path, style: "color:white;", class: 'btn btn-danger' %><br>
+    <%= link_to "ログイン", login_path, style: "color:white;", class: 'btn btn-success' %>
   </div>

@@ -2,15 +2,48 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      address: アドレス
+      content: コンテンツ
     attributes:
       user:
         id: ID
+        name: 名前
         created_at: 登録日時
         updated_at: 更新日時
         email: メールアドレス
         password: パスワード
-    enumerize:
-      user:
-        sex:
-          male: 男性
-          female: 女性
+        gender: 性別
+      address:
+        id: ID
+        created_at: 登録日時
+        updated_at: 更新日時
+        name: 名前
+        email: メールアドレス
+        telephone: 電話番号
+        user_id: ユーザーID
+        user_name: ユーザーの名前
+      content:
+        user: ユーザー
+        created_at: 登録日時
+        updated_at: 更新日時
+        title: タイトル
+        format: 形式
+        address: 宛先
+        sender: 送り主
+        send_at: 発信日時
+        post_at: 投稿日時
+        received_at: 受取り日時
+        shared: 公開状態
+        static_file_id: ファイルNo
+        text: テキスト
+        
+  enumerize:
+    user:
+      gender:
+        unknown: 性別（未指定）
+        male: 男性
+        female: 女性
+    content:
+      shared:
+        private: 非公開
+        public: 公開

@@ -1,19 +1,22 @@
 <% provide(:title, "ログインフォーム") %>
 
- <div class="form-body">
+<h3 class="login_form-logo">Time Capsule</h3>
+
+<div class="form-body">
         <% if @error_message %>
           <div class="form-error">
             <%= @error_message %>
           </div>
         <% end %>
-<%= form_tag("/login") do %>
-
-  <p> メールアドレス </p>
-  <input name="email" value = "<%= @email %>"/>
-  <p> パスワード </p>
-  <input type="password" name="password" value = "<%= @password %>"/><br/>
-  <input type="submit" value="ログイン"/>
-
-<% end %>
-
+  
+    <%= form_tag("/login") do %>
+    
+      <input class="input", name="email" value = "<%= @email %>", placeholder="メールアドレス"/>
+      <input class="input", type="password" name="password" value = "<%= @password %>", placeholder="パスワード"/><br><br>
+      <input class="login_btn", type="submit" value="ログイン"/>
+    
+    <% end %>
+    
+    <br><br>
+    <a class="link_new", href="/signup">新規登録はこちらから</a>
 </div>

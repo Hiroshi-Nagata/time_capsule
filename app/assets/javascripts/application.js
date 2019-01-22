@@ -13,4 +13,9 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
+//= require jquery
+//= require dropzone
+//= require bootstrap-sprockets
+//= require home.js
+//= require static_files.js
+//= require addresses.js

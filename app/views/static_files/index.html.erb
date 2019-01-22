@@ -1,6 +1,19 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Static Files</h1>
+
+<div class="contents-home">
+  <%= form_for @static_file, html: {class:'dropzone', id: "static_file-dropzone"} do |f| %>
+    <div class="dz-message needsclick">
+      <h3>Drop file here</h3> or
+      <strong>Click</strong> to upload
+    </div>
+    
+    <div class="fallback">
+      <%= f.file_field :image_url %>
+      <%= f.submit 'upload the image' %>
+    </div>
+    <%= f.hidden_field :mime_type %>
+    
+  <% end %>
 
 <table>
   <thead>
@@ -15,9 +28,17 @@
   <tbody>
     <% @static_files.each do |static_file| %>
       <tr>
-        <td><%= static_file.mine_type %></td>
-        <td><%= static_file.file_name %></td>
-        <td><%= static_file.data %></td>
+        <td><%= static_file.mime_type %></td>
+        <td><%= static_file.mime_type %></td>
+        <td>
+          <% if static_file.mime_type == 'video/mp4' %>
+            <td><video width="500px" src="<%= static_file.content_file.url %>" controls></video></td>
+          <% elsif static_file.mime_type == 'image/jpeg' %>
+            <td><img width="200px" src="<%= static_file.content_file.url %>" alt="アップロードした画像"></img></td>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
         <td><%= link_to 'Show', static_file %></td>
         <td><%= link_to 'Edit', edit_static_file_path(static_file) %></td>
         <td><%= link_to 'Destroy', static_file, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -25,6 +46,8 @@
     <% end %>
   </tbody>
 </table>
+
+<%= will_paginate %>
 
 <br>
 

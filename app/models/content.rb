@@ -8,6 +8,14 @@ class Content < ApplicationRecord
   validates :send_at, { presence:true }
   validates :received_at, { presence:true }
   
+  belongs_to :user
+  has_many :content_addresses
+  has_and_belongs_to_many :addresses
+  belongs_to :static_file
+  
+  extend Enumerize
+  enumerize :shared, in: { private: 0, public: 1 }
+
   def validate_send_contents
     if movie_file_id.blank? && voice_file_id.blank? && text.blank?
       errors.add(:validate_send_contents, ": 送信するコンテンツが指定されていません。")

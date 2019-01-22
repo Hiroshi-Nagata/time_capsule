@@ -4,11 +4,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body {
+html, body{
   margin:0;
+  padding:0;
 }
 
+/* top */
+
 h1 {
+  font-family: cursive;
   font-size:140px;
   padding-top:140px;
   margin-top:0px;
@@ -25,28 +29,223 @@ p {
   width:1460px;
   margin:0 auto;
   font-size:20px;
-  padding-top:40px;
+
   opacity:0.9;
 }
 
-.top-wrapper {
+.header-top {
+  margin:0;
   color:white;
-  height:700px;
+  height:755px;
   background-image:url(top.jpg);
   background-size:(cover);
   text-align:center;
 }
 
 .btn {
-  padding-top:40px;
-  font-size:20px;
-  display:inline-block;
-  
+  font-size: 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px #000000;
 }
-    .btn-signup {
-      color:red;
-    
+
+.btn:active{
+  box-shadow: none;
+  position: relative;
+  top: 5px;
+}
+
+.btn-danger {
+  margin-top: 40px;
+  background: rgba(255, 0, 0, 0.8);
+}
+
+.btn-danger:hover{
+  background:red;
+}
+
+.btn-success {
+  margin-top: 30px;
+  background: rgba(0, 128, 0, 0.7);
+}
+
+.btn-success:hover{
+  background:green;
+}
+
+ 
+/* home */
+
+.header-home {
+  height:60px;
+  background:#00FFFF;
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  width: 100%;
+}
+
+.header-home-dami{
+  height: 60px;
+}
+
+.header-home-logo{
+  float:left;
+  font-weight: bold;
+  font-family: cursive;
+  margin: 15px 40px 15px 40px;
+  font-size: 20px;
+}
+
+.header-home-logo:hover{
+  background-color:#00FFFF;
+}
+
+li {
+  list-style:none;
+  float:left;
+  padding:23px 33px;
+}
+
+.header-home-list:hover{
+  background-color:#00FFFF;
+}
+
+.alert{
+  text-align: center;
+  width: 200px;
+  border-radius: 30px;
+  line-height: 30px;
+}
+
+
+/* login_form */
+
+.login_form-logo {
+  font-family: cursive;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  text-align: center;
+  font-size: 60px;
+  letter-spacing: 5px;
+}
+
+.form-body{
+
+  height:300px;
+  background-color: #e6e6fa;
+  text-align:center;
+  margin: 0 auto;
+  width: 500px;
+  border-radius: 40px;
+  
+  .input{
+    margin-top: 30px;
+  }
+  
+  .login_btn{
+    margin-top: 20px;
+    width: 200px;
+    background: rgba(0, 128, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 40px;
+    box-shadow: 0 5px #000000;
+  }
+}
+
+.login_btn:active{
+    box-shadow: none;
+    position: relative;
+    top: 5px;
+ }
+ 
+.link_new{
+  font-size: 15px;
+  border-bottom: 1px solid black;
+}
+
+a:hover{
+  background-color: #e6e6fa;
+  text-decoration: none;
+}
+
+/* new */
+
+.row{
+  margin: 0 auto;
+  text-align: center;
+  width: 500px;
+  height:300px;
+  background-color: #e6e6fa;
+  border-radius: 40px;
+
+  .field{
+    margin: 25px 20px 0 0;
+  }
+  
+    .btn-primary{
+      width: 200px;
+      background-color: #ff4500;
     }
-    .btn-login {
-      background-color:blue;
+}
+
+.btn-primary:active{
+    box-shadow: none;
+    position: relative;
+    top: 5px;
+}
+
+.field_with_errors{
+  margin: 0 auto;
+  width: 70%;
+  padding: 0;
+  
+    input{
+      width: 336px;
+      border: 1px solid red;
     }
+}
+
+
+
+/* address */
+
+.address_index{
+  margin: 0 auto;
+  float: left;
+  height: 500px;
+  overflow: auto;
+  margin-left: 50px;
+}
+
+.address_name{
+  display: block;
+  background-color: #e6e6fa;
+  margin-top: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-size: 50px;
+  border: #000 solid 1.5px;
+  width: 480px;
+  text-align: center;
+}
+
+.new_address_path{
+  display: block;
+  background-color: #f8f8ff;
+  width: 480px;
+  font-size: 50px;
+  margin-top: 10px;
+  border: #000 dashed 1px;
+  text-align :center;
+  margin-left: 50px;
+}
+
+.address_show{
+  float: right;
+  margin-right: 20px;
+  width: 60%;
+  height: 500px;
+}

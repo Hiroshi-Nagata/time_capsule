@@ -19,13 +19,11 @@
 </p>
 
 <p>
-  <strong>Movie file:</strong>
-  <%= @content.movie_file_id %>
-</p>
-
-<p>
-  <strong>Voice file:</strong>
-  <%= @content.voice_file_id %>
+  <% if @content.static_file.mime_type == 'video/mp4' %>
+    <video src="<%= @content.static_file.content_file.url %>"></video>
+  <% elsif @content.static_file.mime_type == 'image/jpeg' %>
+    <img src="<%= @content.static_file.content_file.url %>" alt="アップロードした画像"></img>
+  <% end %>
 </p>
 
 <p>

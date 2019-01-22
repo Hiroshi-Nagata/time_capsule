@@ -1,0 +1,16 @@
+ja:
+  users:
+    index:
+      title_admin: '%{name}の一覧'
+      title_user: '%{name}の登録情報'
+  addresses:
+    new:
+      title: '%{address}'
+    index:
+      title: '%{address}'
+    edit:
+      title: '%{address}の編集'
+  contents:
+    index: 
+      title: '%{content}'
+ 

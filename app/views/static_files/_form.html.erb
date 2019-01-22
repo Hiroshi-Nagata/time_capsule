@@ -12,18 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :mine_type %>
-    <%= form.text_field :mine_type %>
+    <%= form.label :mime_type %>
+    <%= form.text_field :mime_type %>
   </div>
 
   <div class="field">
-    <%= form.label :file_name %>
-    <%= form.text_field :file_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :data %>
-    <%= form.text_field :data %>
+    <%= form.label :content_file %>
+    <%= form.file_field :content_file %>
   </div>
 
   <div class="actions">

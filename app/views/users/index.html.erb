@@ -1,34 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
+<% if current_user.admin.admin? %>
+  <h1><%= t '.title_admin', { name: tm(:user) } %></h1>
+  <% else %>
+  <h1><%= t '.title_user', { name: tm(:user) } %></h1>
+<% end %>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Password</th>
-      <th>Gender</th>
-      <th>Created at</th>
-      <th>Updated at</th>
+      <th><%= tm :user, :name %></th>
+      <th><%= tm :user, :email %></th>
+      <th><%= tm :user, :gender %></th>
+      <th><%= tm :user, :created_at %></th>
+      <th><%= tm :user, :updated_at %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.password %></td>
-        <td><%= user.gender %></td>
-        <td><%= user.created_at %></td>
-        <td><%= user.updated_at %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <% if current_user.admin.admin? %>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.gender %></td>
+          <td><%= user.created_at %></td>
+          <td><%= user.updated_at %></td>
+        </tr>
+      <% end %>
+      <% else %>
+        <tr>
+          <td><%= current_user.name %></td>
+          <td><%= current_user.email %></td>
+          <td><%= current_user.gender %></td>
+          <td><%= current_user.created_at %></td>
+          <td><%= current_user.updated_at %></td>
+        </tr>
     <% end %>
+        <tr>
+          <td><%= link_to 'Show', current_user %></td>
+          <td><%= link_to 'Edit', edit_user_path(current_user) %></td>
+          <td><%= link_to 'Destroy', current_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
   </tbody>
 </table>
 

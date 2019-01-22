@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_18_054403) do
+ActiveRecord::Schema.define(version: 2019_01_01_160850) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
     t.string "email"
-    t.integer "telephone"
+    t.string "telephone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -32,8 +32,6 @@ ActiveRecord::Schema.define(version: 2018_11_18_054403) do
     t.integer "user_id"
     t.string "title"
     t.string "format"
-    t.integer "movie_file_id"
-    t.integer "voice_file_id"
     t.text "text"
     t.string "address"
     t.string "sender"
@@ -42,12 +40,18 @@ ActiveRecord::Schema.define(version: 2018_11_18_054403) do
     t.datetime "received_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "shared", default: 0, null: false
+    t.integer "static_file_id"
+  end
+
+  create_table "homes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "static_files", force: :cascade do |t|
     t.string "mime_type"
-    t.string "file_name"
-    t.binary "data"
+    t.string "content_file"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -59,6 +63,7 @@ ActiveRecord::Schema.define(version: 2018_11_18_054403) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.integer "admin", default: 0
   end
 
 end

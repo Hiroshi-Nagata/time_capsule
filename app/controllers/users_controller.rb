@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :log_out, only: [:login_form]
 
   # GET /users
   # GET /users.json
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
     if user && user.authenticate(params[:password])
       log_in user
       flash[:notice] = "ログインしました"
-      redirect_to("/")
+      redirect_to("/home")
     else
       @error_message = "メールアドレスまたはパスワードが間違っています"
       @email = params[:email]
@@ -74,17 +75,14 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    log_out
+    redirect_to("/")
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = User.find_by(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

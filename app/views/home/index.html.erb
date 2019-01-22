@@ -1,0 +1,24 @@
+<% provide(:title, "Home") %>
+
+    
+<div class="home">
+
+  <div class="contents-home">
+    <%= form_for @static_file, html: {class:'dropzone', id: "static_file-dropzone"} do |f| %>
+      <div class="dz-message needsclick">
+        <h3>Drop file here</h3> or
+        <strong>Click</strong> to upload
+      </div>
+      
+      <div class="fallback">
+        <%= f.file_field :image_url %>
+        <%= f.submit 'upload the image' %>
+      </div>
+      <%= f.hidden_field :mime_type %>
+      
+    <% end %>
+    
+    <a href="/contents/new?content%5Bstatic_file_id%5D=[response.itemId]" style="visibility:hidden" id="target">次へ</a>
+    
+  </div>
+</div>

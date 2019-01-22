@@ -4,13 +4,36 @@
     <title><%= yield(:title) %> | TimeCapsule</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= include_gon %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
   </head>
-
+  
   <body>
+  <% if logged_in? %>
+    <div class="header-home">
+      <a class="header-home-logo" href="/home">Time capsule</a>
+      <ul>
+        <li><%= link_to "登録宛先一覧", addresses_path, class: 'header-home-list' %></li>
+        <li><%= link_to "投稿一覧", static_files_path, class: 'header-home-list' %></li>
+        <li><%= link_to "ログアウト", logout_path, class: 'header-home-list', method: :delete %></li>
+      </ul>
+      
+      <span class="success_msgs"> <% if notice %>
+        <p class="alert alert-success" id="notice">
+          <%= notice %> 
+        </p> <% end %> </span>
+        
+      <script>
+        $( document ).ready(function() {
+          $('#notice').fadeOut(3000);
+      });
+      </script>
+    </div>
+    <div class="header-home-dami"></div>
+  <% end %>
+
     <%= yield %>
+    
   </body>
 </html>
