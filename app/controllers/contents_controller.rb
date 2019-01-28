@@ -4,14 +4,18 @@ class ContentsController < ApplicationController
 
   # GET /contents
   # GET /contents.json
-   def upload
+  def index
+    if !current_user.admin.admin?
+      @contents = Content.where(user_id: current_user.id)
+    else
+      @contents = Content.all
+    end
+  end
+
+  def upload
     @upload_file = UploadFile.new( params.require(:upload_file).permit(:name, :file) )
     @upload_file.save
     redirect_to action: 'index'
-   end
-  
-  def index
-    @contents = Content.where(user_id: current_user.id)
   end
 
   # GET /contents/1
@@ -22,11 +26,8 @@ class ContentsController < ApplicationController
   # GET /contents/new
   def new
     @content = Content.new(content_params)
-    # @content.static_file = StaticFile.find_by(id: params[:id])
-    
-    # 以下のどちらかでうまく行きますね。
-     @content.static_file = StaticFile.find_by(id: content_params[:static_file_id])
-    # @content.static_file = StaticFile.find_by(id: params[:content][:static_file_id])
+    @content.static_file = StaticFile.find_by(id: content_params[:static_file_id])
+    @content.user = current_user
   end
 
   # GET /contents/1/edit
@@ -37,13 +38,16 @@ class ContentsController < ApplicationController
   # POST /contents.json
   def create
     @content = Content.new(content_params)
-    
+
     respond_to do |format|
       if @content.save
         format.html { redirect_to @content, notice: 'Content was successfully created.' }
         format.json { render :show, status: :created, location: @content }
       else
-        format.html { render :new }
+        format.html {
+          @content.static_file = StaticFile.find_by(id: @content.static_file_id)
+          render :new
+        }
         format.json { render json: @content.errors, status: :unprocessable_entity }
       end
     end
@@ -81,6 +85,6 @@ class ContentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def content_params
-      params.require(:content).permit(:user_id, :title, :format, :static_file_id, :text, :address, :sender, :send_at, :post_at, :received_at, :shared)
+      params.require(:content).permit(:user_id, :title, :format, :static_file_id, :text, :address, :sender, :send_at, :post_at, :received_at, :shared,  :address_id)
     end
 end

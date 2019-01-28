@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'users#destroy'
   get '/addresses', to: 'addresses#index'
   get '/contents', to: 'contents#index'
+  get '/xxx/:content_id' ,to: 'present#show'
   resources :addresses
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

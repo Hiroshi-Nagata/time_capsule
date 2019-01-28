@@ -11,27 +11,29 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
-  </div>
+  <% if current_user.admin.admin? %>
+    <div class="field">
+      <%= form.label :user_id %>
+      <%= form.collection_select :user_id, user_options, :id, :name %>
+    </div>
+  <% else %>
+    <%= form.hidden_field :user_id %>
+  <% end %>
 
   <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
 
-  <div class="field">
-    <%= form.label :format %>
-    <%= form.text_field :format %>
-  </div>
-
   <p>
-    <% if content.static_file.mime_type == 'video/mp4' %>
+    <% if content.static_file.nil? %>
+      画像または動画がアップロードされていません。
+    <% elsif content.static_file.mime_type == 'video/mp4' %>
       <video width="200px" src="<%= content.static_file.content_file.url %>"></video>
     <% elsif content.static_file.mime_type == 'image/jpeg' %>
       <img width="200px" src="<%= content.static_file.content_file.url %>" alt="アップロードした画像"></img>
     <% end %>
+    <%= form.hidden_field :static_file_id %> 
   </p>
   
   <div class="field">
@@ -40,8 +42,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
+    <%= form.label :address_id %>
+    <%= form.collection_select :address_id, address_options, :id, :name %>
   </div>
 
   <div class="field">
@@ -51,18 +53,15 @@
 
   <div class="field">
     <%= form.label :send_at %>
-    <%= form.datetime_select :send_at %>
+    <%= form.datetime_select :send_at, include_blank: true %>
   </div>
 
-  <div class="field">
-    <%= form.label :post_at %>
-    <%= form.datetime_select :post_at %>
-  </div>
-
-  <div class="field">
-    <%= form.label :received_at %>
-    <%= form.datetime_select :received_at %>
-  </div>
+  <% if content.received_at.present? %>
+    <div class="field">
+      <%= form.label :received_at %>
+      <%= content.received_at.to_s %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>

@@ -20,25 +20,21 @@
   </thead>
 
   <tbody>
-    <% if current_user.admin.admin? %>
-      <%= Content.all %>
-    <% else %>
-      <% @contents.each do |content| %>
-        <tr>
-          <td><%= image_tag content.static_file.url %></td>
-          <td><%= content.user_id %></td>
-          <td><%= content.title %></td>
-          <td><%= content.format %></td>
-          <td><%= content.text %></td>
-          <td><%= content.sender %></td>
-          <td><%= content.send_at %></td>
-          <td><%= content.post_at %></td>
-          <td><%= content.received_at %></td>
-          <td><%= link_to 'Show', content %></td>
-          <td><%= link_to 'Edit', edit_content_path(content) %></td>
-          <td><%= link_to 'Destroy', content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
+    <% @contents.each do |content| %>
+      <tr>
+        <td><%= image_tag content.static_file.content_file.url %></td>
+        <td><%= content.user_id %></td>
+        <td><%= content.title %></td>
+        <td><%= content.format %></td>
+        <td><%= content.text %></td>
+        <td><%= content.sender %></td>
+        <td><%= content.send_at %></td>
+        <td><%= content.post_at %></td>
+        <td><%= content.received_at %></td>
+        <td><%= link_to 'Show', content %></td>
+        <td><%= link_to 'Edit', edit_content_path(content) %></td>
+        <td><%= link_to 'Destroy', content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
     <% end %>
   </tbody>
 </table>
