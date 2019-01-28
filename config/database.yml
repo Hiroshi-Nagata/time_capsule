@@ -21,6 +21,5 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  adapter: postgresql
-  database: mydatabase
+  adapter: pg
+  database: db/production.pg
