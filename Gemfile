@@ -21,8 +21,11 @@ gem 'pry-byebug'
 gem 'pry-doc'
 gem 'bootstrap-sass', '3.3.7'
 gem 'jquery-rails'
-gem 'sqlite3', group: :development
-gem 'pg', group: :production
+# gem 'sqlite3', group: :development
+# gem 'pg', group: :production
+gem 'sqlite3', groups: %w(test development), require: false
+gem 'pg', groups: %w(production), require: false
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
