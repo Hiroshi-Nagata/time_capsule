@@ -21,6 +21,7 @@ gem 'pry-byebug'
 gem 'pry-doc'
 gem 'bootstrap-sass', '3.3.7'
 gem 'jquery-rails'
+gem 'rails_12factor', group: :production
 # gem 'sqlite3', group: :development
 # gem 'pg', group: :production
 
