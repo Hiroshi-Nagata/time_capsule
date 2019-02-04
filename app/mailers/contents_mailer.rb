@@ -1,7 +1,7 @@
 class ContentsMailer < ApplicationMailer
-  def say_hello(user)
-    @user = user
+  def send_mail(content)
+    @content = content
 
-    mail to: "#{@user.email}", subject: "Hello, #{@user.name}"
+    mail to: "#{@content.address_id}", subject: "#{@content.title}"
   end
 end

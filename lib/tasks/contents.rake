@@ -1,10 +1,6 @@
 namespace :contents do
-  desc '挨拶するメールを発行する。'
-  task say_hello: :environment do
-    users = User.all
-
-    users.each do |user|
-      ContentsMailer.say_hello(user).deliver
-    end
+  desc '送信コンテンツのURLを発行する'
+  task send_mail: :environment do
+      ContentsMailer.send_mail(content).deliver if (Time.now == content.send_at)
   end
 end
