@@ -12,6 +12,7 @@ class Content < ApplicationRecord
   
   extend Enumerize
   enumerize :shared, in: { private: 0, public: 1 }
+  enumerize :status, in: { wait: 0, success: 1, error: 2}
 
 #  def validate_send_contents
 #    if movie_file_id.blank? && voice_file_id.blank? && text.blank?

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_26_095504) do
+ActiveRecord::Schema.define(version: 2019_02_11_144746) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id"
@@ -35,13 +35,14 @@ ActiveRecord::Schema.define(version: 2019_01_26_095504) do
     t.text "text"
     t.string "sender"
     t.datetime "send_at"
-    t.datetime "post_at"
+    t.datetime "sent_at"
     t.datetime "received_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "shared", default: 0, null: false
     t.integer "static_file_id"
     t.integer "address_id", default: 0, null: false
+    t.integer "status", default: 0, null: false
   end
 
   create_table "homes", force: :cascade do |t|
