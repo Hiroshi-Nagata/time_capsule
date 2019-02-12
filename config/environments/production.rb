@@ -94,12 +94,12 @@ Rails.application.configure do
   
    # Use SendGrid - Add-ons - Heroku
   config.action_mailer.delivery_method = :smtp
-  #config.action_mailer.default_url_options = { host: '独自ドメイン' }
+  config.action_mailer.default_url_options = { host: 'cryptic-ocean-49106.herokuapp.com' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
       user_name: ENV['SENDGRID_USERNAME'],
       password: ENV['SENDGRID_PASSWORD'],
-      domain: 'gmail.com',
+      domain: 'heroku.com',
       address: 'smtp.sendgrid.net',
       port: 587,
       authentication: :plain,

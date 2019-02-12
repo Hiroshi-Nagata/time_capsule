@@ -30,8 +30,8 @@ ja:
         format: 形式
         address: 宛先
         sender: 送り主
-        send_at: 発信日時
-        post_at: 投稿日時
+        send_at: 予約日時
+        sent_at: 送信日時
         received_at: 受取り日時
         shared: 公開状態
         static_file_id: ファイルNo
