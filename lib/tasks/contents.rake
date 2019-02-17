@@ -5,7 +5,7 @@ namespace :contents do
     # statusを追加    
     # status=[:wait, :success, :error]
     # post_atをsent_atにリネーム
-    contents = Content.where("send_at <= ?", Time.now).where(status: :wait)
+    contents = Content.where("send_at <= ?", Time.current).where(status: :wait)
     contents.each do |content|
       begin
         ContentsMailer.send_mail(content).deliver
