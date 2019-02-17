@@ -9,7 +9,7 @@ namespace :contents do
     contents.each do |content|
       begin
         ContentsMailer.send_mail(content).deliver
-        content.sent_at = TIme.now
+        content.sent_at = Time.now
         content.status = :success
         content.save
       rescue => error
