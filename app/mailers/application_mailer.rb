@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'タイムカプセル'
+  default from: "タイムカプセル"
   layout 'mailer'
 end
