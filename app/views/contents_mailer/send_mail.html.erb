@@ -1,4 +1,4 @@
 <h1><%= @content.sender%>からあなたにメッセージが届きました！</h1>
 
 メッセージを確認するには、以下のURLをクリックしてください
-<%= link_to 'さんからのメッセージ', controller: 'present', action: 'show', content_id: @content.static_file_id %>
+<%= link_to 'さんからのメッセージ', controller: 'present', action: 'show', content_id: @content.content_id %>

@@ -34,6 +34,7 @@
       <img width="200px" src="<%= content.static_file.content_file.url %>" alt="アップロードした画像"></img>
     <% end %>
     <%= form.hidden_field :static_file_id %>
+    <%= form.hidden_field :content_id %>
     <%= form.hidden_field :status %>
   </p>
   
