@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'oaoaarashi7@gmail.com'
+  default from: 'タイムカプセル'
   layout 'mailer'
 end
