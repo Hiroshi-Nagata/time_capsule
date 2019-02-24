@@ -31,7 +31,7 @@
         <td><%= static_file.mime_type %></td>
         <td><%= static_file.mime_type %></td>
         <td>
-          <% if static_file.mime_type == 'video/mp4' %>
+          <% if static_file.mime_type == 'video/mp4' || 'video/quicktime' %>
             <td><video width="500px" src="<%= static_file.content_file.url %>" controls></video></td>
           <% elsif static_file.mime_type == 'image/jpeg' %>
             <td><img width="200px" src="<%= static_file.content_file.url %>" alt="アップロードした画像"></img></td>

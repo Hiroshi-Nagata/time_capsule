@@ -21,7 +21,13 @@
   <tbody>
     <% @contents.each do |content| %>
       <tr>
-        <td><%= image_tag content.static_file.content_file.url %></td>
+        <td>
+          <% if content.static_file.mime_type == 'video/mp4' || 'video/quicktime' %>
+            <td><video width="500px" src="<%= content.static_file.content_file.url %>" controls></video></td>
+          <% elsif content.static_file.mime_type == 'image/jpeg' %>
+            <td><img width="200px" src="<%= content.static_file.content_file.url %>" alt="アップロードした画像"></img></td>
+          <% end %>
+        </td>
         <td><%= content.user_id %></td>
         <td><%= content.title %></td>
         <td><%= content.format %></td>

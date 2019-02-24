@@ -2,7 +2,7 @@ $(function(){
   Dropzone.autoDiscover = false;
  
   $("#static_file-dropzone").dropzone({
-    maxFilesize: 5,
+    maxFilesize: 100,
     addRemoveLinks: true,
     paramName: 'static_file[content_file]',
     success: function(file, response){

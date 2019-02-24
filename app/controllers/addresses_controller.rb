@@ -46,7 +46,7 @@ class AddressesController < ApplicationController
   def update
     respond_to do |format|
       if @address.update(address_params)
-        format.html { redirect_to addresses_url, notice: 'Address was successfully updated.' }
+        format.html { redirect_to addresses_url, notice: '更新完了' }
         format.json { render :show, status: :ok, location: @address }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class AddressesController < ApplicationController
   def destroy
     @address.destroy
     respond_to do |format|
-      format.html { redirect_to addresses_url, notice: 'Address was successfully destroyed.' }
+      format.html { redirect_to addresses_url, notice: '消去しました' }
       format.json { head :no_content }
     end
   end

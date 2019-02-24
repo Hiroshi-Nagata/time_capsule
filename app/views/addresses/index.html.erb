@@ -1,27 +1,21 @@
 <% provide(:title, "登録アドレス一覧") %>
 
-
-
 <%= link_to '新規アドレス登録', new_address_path, class: 'new_address_path' %>
 
 <div class="address_index">
   <table>
-  
     <tbody>
-      
         <% @addresses.each do |address| %>
           <tr>
             <td>
               <form action="javascript:void(0)">
                 <button type='submit' class="address" value='{#@address}' onclick="addressfunc(<%= address.id %>)"><%= address.name %></button>
               </form>
-              <%#= link_to "#{address.name}", "/addresses/#{address.id}", id:'show', method: :post,  class: 'address_name' %></td>
+            </td>
           </tr>
         <% end %>
     </tbody>
   </table>
 </div>
 
-
-<div class="address_show" id="show">
-</div>
+<div class="address_show" id="show"></div>
