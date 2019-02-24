@@ -1,10 +1,8 @@
 <% provide(:title, "投稿一覧") %>
 
-<h1><%= t '.title', { content: tm(:content) } %></h1>
-
-<table>
+<table class="content_table">
   <thead>
-    <tr>
+    <tr class="content_logo">
       <th><%= tm :content, :static_file_id %></th>
       <th><%= tm :content, :user %></th>
       <th><%= tm :content, :title %></th>
@@ -12,6 +10,7 @@
       <th><%= tm :content, :text %></th>
       <th><%= tm :content, :address %></th>
       <th><%= tm :content, :sender %></th>
+      <th><%= tm :content, :status %></th>
       <th><%= tm :content, :send_at %></th>
       <th><%= tm :content, :sent_at %></th>
       <th colspan="3"></th>
@@ -20,7 +19,7 @@
 
   <tbody>
     <% @contents.each do |content| %>
-      <tr>
+      <tr class="content_detail">
         <td>
           <% if content.static_file.mime_type == 'video/mp4' || 'video/quicktime' %>
             <td><video width="500px" src="<%= content.static_file.content_file.url %>" controls></video></td>
@@ -33,6 +32,7 @@
         <td><%= content.format %></td>
         <td><%= content.text %></td>
         <td><%= content.sender %></td>
+        <td><%= content.status %></td>
         <td><%= content.send_at %></td>
         <td><%= content.sent_at %></td>
         <td><%= link_to 'Show', content %></td>
@@ -42,6 +42,8 @@
     <% end %>
   </tbody>
 </table>
+
+<%= will_paginate %>
 
 <br>
 

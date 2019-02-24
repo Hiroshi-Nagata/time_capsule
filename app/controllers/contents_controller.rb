@@ -10,6 +10,7 @@ class ContentsController < ApplicationController
     else
       @contents = Content.all
     end
+  @contents = Content.paginate(page: params[:page]).order(id: "desc")
   end
 
   def upload

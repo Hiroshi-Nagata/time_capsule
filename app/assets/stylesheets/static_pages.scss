@@ -174,6 +174,7 @@ a:hover{
   text-decoration: none;
 }
 
+
 /* new */
 
 .signup_logo{
@@ -293,4 +294,24 @@ a:hover{
   box-shadow: none;
   position: relative;
   top: 5px;
+}
+
+
+/* content */
+
+.content_table{
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 80%;
+}
+
+.content_logo{
+  position: fixed;
+  z-index: 2;
+  width: 80%;
+  background-color: red;
+}
+
+.content_detail{
+  margin-top: 300px;
 }
