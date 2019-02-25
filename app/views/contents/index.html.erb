@@ -1,47 +1,26 @@
 <% provide(:title, "投稿一覧") %>
 
-<table class="content_table">
-  <thead>
-    <tr class="content_logo">
-      <th><%= tm :content, :static_file_id %></th>
-      <th><%= tm :content, :user %></th>
-      <th><%= tm :content, :title %></th>
-      <th><%= tm :content, :format %></th>
-      <th><%= tm :content, :text %></th>
-      <th><%= tm :content, :address %></th>
-      <th><%= tm :content, :sender %></th>
-      <th><%= tm :content, :status %></th>
-      <th><%= tm :content, :send_at %></th>
-      <th><%= tm :content, :sent_at %></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div class="content_detail">
     <% @contents.each do |content| %>
-      <tr class="content_detail">
-        <td>
-          <% if content.static_file.mime_type == 'video/mp4' || 'video/quicktime' %>
-            <td><video width="500px" src="<%= content.static_file.content_file.url %>" controls></video></td>
+      <div class="content_thumbnail">
+          <% if ['video/mp4', 'video/quicktime'].include?(content.static_file.mime_type) %>
+            <video width="400px" height="270px" src="<%= content.static_file.content_file.url %>" controls></video>
           <% elsif content.static_file.mime_type == 'image/jpeg' %>
-            <td><img width="200px" src="<%= content.static_file.content_file.url %>" alt="アップロードした画像"></img></td>
+            <img width="400px" height="270px" src="<%= content.static_file.content_file.url %>" alt="アップロードした画像"></img>
           <% end %>
-        </td>
-        <td><%= content.user_id %></td>
-        <td><%= content.title %></td>
-        <td><%= content.format %></td>
-        <td><%= content.text %></td>
-        <td><%= content.sender %></td>
-        <td><%= content.status %></td>
-        <td><%= content.send_at %></td>
-        <td><%= content.sent_at %></td>
-        <td><%= link_to 'Show', content %></td>
-        <td><%= link_to 'Edit', edit_content_path(content) %></td>
-        <td><%= link_to 'Destroy', content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      </div>
+      <div class="content_description">
+        <span class="content_title"><%= content.title %></span><br><br>
+        <span><%= tm :content, :sender %> : <%= content.sender %></span><br>
+        <span><%= tm :content, :send_at %> : <%= content.send_at %></span><br>
+        <span><%= tm :content, :sent_at %> : <%= content.sent_at %></span><br>
+        <span><%= tm :content, :status %> : <%= content.status %></span><br><br>
+        <%= link_to '詳細', content, class: 'content_btn content_btn_show' %>
+        <%= link_to '編集', edit_content_path(content), class: 'content_btn content_btn_edit' %>
+        <%= link_to '削除', content, class: 'content_btn content_btn_destroy', method: :delete, data: { confirm: 'このコンテンツを消去しますか?' } %>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
 
 <%= will_paginate %>
 

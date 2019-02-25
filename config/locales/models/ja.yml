@@ -32,7 +32,7 @@ ja:
         sender: 送り主
         send_at: 予約日時
         sent_at: 送信日時
-        received_at: 受取り日時
+        status: 送信状態
         shared: 公開状態
         static_file_id: ファイルNo
         text: テキスト
@@ -47,3 +47,7 @@ ja:
       shared:
         private: 非公開
         public: 公開
+      status:
+        wait: 待機
+        success: 送信済み
+        error: エラー
