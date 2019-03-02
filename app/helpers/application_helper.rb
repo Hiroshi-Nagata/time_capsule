@@ -7,7 +7,15 @@ module ApplicationHelper
     end
   end
   
+  # def simple_time(time)
+  #   if time.nil?
+  #     return ""
+  #   else
+  #     return time.strftime("%Y-%m-%d %H:%M:%S")
+  #   end
+  # end
+
   def simple_time(time)
-      time.strftime("%Y-%m-%d %H:%M:%S")
+    time&.strftime("%Y-%m-%d %H:%M:%S")
   end
 end
