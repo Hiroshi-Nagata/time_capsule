@@ -29,16 +29,14 @@ p {
   width:1460px;
   margin:0 auto;
   font-size:20px;
-
   opacity:0.9;
 }
 
 .header-top {
-  margin:0;
+  padding-bottom: 120px;
   color:white;
-  height:755px;
   background-image:url(top.jpg);
-  background-size:(cover);
+  background-size: 100% 100%;
   text-align:center;
 }
 
@@ -319,12 +317,11 @@ a:hover{
   height: 300px;
   margin-left: 50px;
   border: #000 ridge 2px;
-  padding-top: 15px;
   width: 52.6%;
   margin-bottom: 10px;
-  padding-left: 15px;
+  padding: 15px 15px 0 15px;
   
-  .content_title{
+  .content_title_index{
     border-bottom: #000 solid 1px;
     font-weight: bold;
     font-size: 20px;
@@ -368,3 +365,43 @@ a:hover{
   position: relative;
   top: 3px;
 }
+
+.content_title_show{
+  font-size: 30px;
+  margin: 30px 50px 0 50px;
+  font-weight: bolder;
+  border-bottom: double;
+}
+  
+.content_show{
+  height: 100%;
+  margin: 40px 50px 0 50px;
+  
+  .content_show_detail{
+    float: left;
+    width: 40%;
+  }
+  
+  .content_show_image{
+    float: right;
+  }
+  
+  .content_text{
+    width: 700px;
+    word-break: break-all;
+    border: solid 1px;
+    padding: 8px;
+  }
+}
+
+  .content_btn_edit{
+    background-color: #7fff7f;
+    color: black;
+    font-size: 15px;
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px #000000;
+    margin-right: 15px;
+  }
+  

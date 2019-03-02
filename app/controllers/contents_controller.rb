@@ -10,7 +10,8 @@ class ContentsController < ApplicationController
     else
       @contents = Content.all
     end
-  @contents = Content.paginate(page: params[:page]).order(id: "desc")
+    
+    @contents = Content.paginate(page: params[:page]).order(id: "desc")
   end
 
   def upload
@@ -59,7 +60,7 @@ class ContentsController < ApplicationController
   def update
     respond_to do |format|
       if @content.update(content_params)
-        format.html { redirect_to @content, notice: 'Content was successfully updated.' }
+        format.html { redirect_to @content, notice: '更新完了' }
         format.json { render :show, status: :ok, location: @content }
       else
         format.html { render :edit }

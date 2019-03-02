@@ -35,7 +35,7 @@ ja:
         status: 送信状態
         shared: 公開状態
         static_file_id: ファイルNo
-        text: テキスト
+        text: メッセージ
         
   enumerize:
     user:

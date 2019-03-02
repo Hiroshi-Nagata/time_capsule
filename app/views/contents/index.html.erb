@@ -10,9 +10,10 @@
           <% end %>
       </div>
       <div class="content_description">
-        <span class="content_title"><%= content.title %></span><br><br>
-        <span><%= tm :content, :sender %> : <%= content.sender %></span><br>
-        <span><%= tm :content, :send_at %> : <%= content.send_at %></span><br>
+        <span class="content_title_index"><%= content.title %></span><br><br>
+        <span>&emsp;&emsp;<%= tm :content, :address %> : <%= content.address.name %></span><br>
+        <span>&emsp;<%= tm :content, :sender %> : <%= content.sender %></span><br>
+        <span><%= tm :content, :send_at %> : <%= simple_time(content.send_at) %></span><br>
         <span><%= tm :content, :sent_at %> : <%= content.sent_at %></span><br>
         <span><%= tm :content, :status %> : <%= content.status %></span><br><br>
         <%= link_to '詳細', content, class: 'content_btn content_btn_show' %>
