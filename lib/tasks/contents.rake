@@ -2,9 +2,6 @@ namespace :contents do
   desc '送信コンテンツのURLを発行する'
   task send_mail: :environment do
 
-    # statusを追加    
-    # status=[:wait, :success, :error]
-    # post_atをsent_atにリネーム
     contents = Content.where("send_at <= ?", Time.current).where(status: :wait)
     contents.each do |content|
       begin

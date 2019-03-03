@@ -73,7 +73,7 @@ class AddressesController < ApplicationController
         @addresses = @addresses.where(user_id: current_user.id)
       end
     end
-    
+
     def set_address
       set_addresses
       @address = @addresses.find_by(id: params[:id])

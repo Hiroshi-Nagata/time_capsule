@@ -8,7 +8,6 @@ class StaticFilesController < ApplicationController
   def index
     @static_file = StaticFile.new
     @static_files = StaticFile.paginate(page: params[:page]).order(id: "desc")
-    # @static_files = StaticFile.all
   end
 
   # GET /static_files/1

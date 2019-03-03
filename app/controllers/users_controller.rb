@@ -3,9 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :log_out, only: [:login_form]
 
-  # GET /users
-  # GET /users.json
-  
+
   def login_form
   end
 
@@ -23,6 +21,8 @@ class UsersController < ApplicationController
     end
   end
   
+  # GET /users
+  # GET /users.json
   def index
     @users = User.all
   end
@@ -81,12 +81,13 @@ class UsersController < ApplicationController
     redirect_to("/")
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find_by(id: params[:id])
     end
-
+  
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :email, :password, :gender, :created_at, :updated_at)
