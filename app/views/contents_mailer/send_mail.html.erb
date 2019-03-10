@@ -1,4 +1,9 @@
-<h1><%= @content.sender%>からあなたにメッセージが届きました！</h1>
+<h1><%= @content.sender%>からあなたにメッセージが届きました！</h1><br>
 
-メッセージを確認するには、以下のURLをクリックしてください
-<%= link_to 'さんからのメッセージ', controller: 'present', action: 'show', content_id: @content.id %>
+<p>メッセージを確認するには、以下のURLをクリックしてください</p><br>
+<%= link_to 'メッセージ', controller: 'present', action: 'show', content_id: @content.id, class: 'message_btn' %><br><br>
+
+<p>このメールはTimeCapsuleによる自動送信です。</p>
+<p><a href="https://cryptic-ocean-49106.herokuapp.com">TimeCapsuleとは</a>「未来の自分に動画を送ろう」をコンセプトとしたwebサービスです</p>
+<p>未来の自分に伝えたいことはありませんか？</p>
+<p>ぜひ、TimeCapsuleをご利用ください！</p>

@@ -1,49 +1,23 @@
-
-<p>
-  <strong>User:</strong>
-  <%= @content.user_id %>
-</p>
-
-<p>
-  <strong>Title:</strong>
+<div class="present_title">
   <%= @content.title %>
-</p>
+</div><br>
 
-<p>
-  <strong>Format:</strong>
-  <%= @content.format %>
-</p>
-
-<p>
-  <% if @content.static_file.mime_type == 'video/mp4' %>
-    <video src="<%= @content.static_file.content_file.url %>"></video>
-  <% elsif @content.static_file.mime_type == 'image/jpeg' %>
-    <img src="<%= @content.static_file.content_file.url %>" alt="アップロードした画像"></img>
-  <% end %>
-</p>
-
-<p>
-  <strong>Text:</strong>
-  <%= @content.text %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @content.address %>
-</p>
-
-<p>
-  <strong>Sender:</strong>
-  <%= @content.sender %>
-</p>
-
-<p>
-  <strong>Send at:</strong>
-  <%= @content.send_at %>
-</p>
-
-<p>
-  <strong>Sent at:</strong>
-  <%= @content.sent_at %>
-</p>
-
+<div class="present_show">
+  <div class="present_image">
+    <% if ['video/mp4', 'video/quicktime'].include?(@content.static_file.mime_type) %>
+      <video width="700px" height="472.5px" src="<%= content.static_file.content_file.url %>" controls></video>
+    <% elsif @content.static_file.mime_type == 'image/jpeg' %>
+      <img width="700px" height="472.5px" src="<%= @content.static_file.content_file.url %>" alt="アップロードした画像"></img>
+    <% end %>
+  </div>
+  
+  <div class="present_detail">
+    <p>&emsp;&emsp;<%= tm :content, :address %> : <%= @content.address.name %></p><br>
+    <p>&emsp;<%= tm :content, :sender %> : <%= @content.sender %></p><br>
+    <p><%= tm :content, :send_at %> : <%= simple_time(@content.send_at) %></p><br>
+    <p><%= tm :content, :sent_at %> : <%= @content.sent_at %></p><br>
+    <p>&emsp;&emsp;<%= tm :content, :format %> : <%= @content.static_file.mime_type %></p><br>
+    <p><%= tm :content, :text %></p>
+    <p class="present_text"><%= @content.text %></p><br>
+  </div>
+</div>

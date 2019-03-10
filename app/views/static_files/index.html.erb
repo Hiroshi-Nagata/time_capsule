@@ -31,10 +31,12 @@
         <td><%= static_file.mime_type %></td>
         <td><%= static_file.mime_type %></td>
         <td>
-          <% if static_file.mime_type == 'video/mp4' || 'video/quicktime' %>
+          <% if ['video/mp4', 'video/quicktime'].include?(static_file.mime_type) %>
             <td><video width="500px" src="<%= static_file.content_file.url %>" controls></video></td>
-          <% elsif static_file.mime_type == 'image/jpeg' %>
+          <% elsif ['image/jpeg', 'image/png', 'image/gif', 'image/bmp'].include?(static_file.mime_type) %>
             <td><img width="200px" src="<%= static_file.content_file.url %>" alt="アップロードした画像"></img></td>
+          <% elsif ['audio/mp3', 'audio/mp4'].include?(static_file.mime_type) %>
+            <td><audio width="200px" src="<%= static_file.content_file.url %>" controls></audio></td>
           <% end %>
         </td>
       </tr>

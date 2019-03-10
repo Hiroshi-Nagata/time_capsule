@@ -5,7 +5,7 @@ $(function(){
 function initDropZone() {
   Dropzone.autoDiscover = false;
 
-  $("#static_file-dropzone").dropzone({
+  $("#static_file-dropzone1").dropzone({
     maxFilesize: 100,
     addRemoveLinks: true,
     paramName: 'static_file[content_file]',
@@ -14,7 +14,7 @@ function initDropZone() {
 			$(file.previewElement).find('.dz-remove').attr('id',response.itemId);
 			$(file.previewElement).addClass('dz-success');
 
-		  $('#target').attr("href", "/contents/new?content%5Bstatic_file_id%5D=" + response.itemId).css('visibility', 'visible');
+		  $('#target1').attr("href", "/contents/new?content%5Bstatic_file_id%5D=" + response.itemId).css('visibility', 'visible');
 		},
     removedfile: function(file){
       var id = $(file.previewTemplate).find('.dz-remove').attr('id');

@@ -1,6 +1,7 @@
-<h1>Editing User</h1>
+<% provide(:title, "ユーザー情報の編集") %>
 
-<%= render 'form', user: @user %>
+<h3 class="user_edit_logo"><%= t '.title', { user: tm(:user) } %></h3>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<div class="user_edit_body">
+    <%= render 'form', user: @user %>
+</div>

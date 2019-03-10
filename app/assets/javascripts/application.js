@@ -18,3 +18,7 @@
 //= require home.js
 //= require static_files.js
 //= require addresses.js
+//= require moment
+//= require moment/ja
+//= require bootstrap-datetimepicker
+//= require common.js

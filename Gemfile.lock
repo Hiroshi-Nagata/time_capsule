@@ -58,6 +58,8 @@ GEM
       sass (>= 3.3.4)
     bootstrap-will_paginate (1.0.0)
       will_paginate
+    bootstrap3-datetimepicker-rails (4.17.47)
+      momentjs-rails (>= 2.8.1)
     builder (3.2.3)
     byebug (10.0.2)
     capybara (3.9.0)
@@ -93,6 +95,8 @@ GEM
     erubi (1.7.1)
     execjs (2.7.0)
     ffi (1.9.25)
+    font-awesome-rails (4.7.0.4)
+      railties (>= 3.2, < 6.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     gon (6.2.1)
@@ -129,6 +133,8 @@ GEM
     mini_mime (1.0.1)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
+    momentjs-rails (2.20.1)
+      railties (>= 3.1)
     msgpack (1.2.4)
     multi_json (1.13.1)
     nio4r (2.3.1)
@@ -251,6 +257,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap-sass (= 3.3.7)
   bootstrap-will_paginate (= 1.0.0)
+  bootstrap3-datetimepicker-rails (~> 4.17.37)
   byebug
   capybara (>= 2.15)
   carrierwave
@@ -258,11 +265,13 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   dropzonejs-rails
   enumerize
+  font-awesome-rails
   gon
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   mini_magick (= 4.8.0)
+  momentjs-rails (>= 2.9.0)
   pg
   pry-byebug
   pry-doc

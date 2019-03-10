@@ -1,6 +1,7 @@
-<h1>Editing Content</h1>
+<% provide(:title, "コンテンツの編集") %>
 
 <%= render 'form', content: @content %>
 
-<%= link_to 'Show', @content %> |
-<%= link_to 'Back', contents_path %>
+<div>
+    <%= link_to 'Back', contents_path, class: "content_edit_back" %>
+</div>

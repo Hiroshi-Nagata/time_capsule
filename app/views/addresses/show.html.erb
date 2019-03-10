@@ -13,5 +13,7 @@
   <%= @address.telephone %>
 </p>
 
-<%= link_to '編集', edit_address_path(@address) %> | 
-<%= link_to '削除', address_path, method: :delete, data: { confirm: 'このアドレスを消去しますか?' } %>
+<div class="address_show_link">
+  <%= link_to '編集', edit_address_path(@address), class: 'address_btn_edit' %>
+  <%= link_to '削除', address_path, class: 'address_btn_destroy', method: :delete, data: { confirm: 'このアドレスを消去しますか?' } %>
+</div>

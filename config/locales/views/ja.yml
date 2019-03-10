@@ -3,6 +3,8 @@ ja:
     index:
       title_admin: '%{name}の一覧'
       title_user: '%{name}の登録情報'
+    edit:
+      title: '%{user}の編集'
   addresses:
     new:
       title: '%{address}'

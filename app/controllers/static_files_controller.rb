@@ -42,7 +42,6 @@ class StaticFilesController < ApplicationController
             redirect_to new_content_url({ content: { static_file_id: @static_file.id }})
           end
         }
-        # format.json { render :show, status: :created, location: @static_file }
         format.json { render json: {message: 'success', itemId: @static_file.id}, status: 200 }
       else
         format.html { render :new }
@@ -70,7 +69,7 @@ class StaticFilesController < ApplicationController
   def destroy
     @static_file.destroy
     respond_to do |format|
-      format.html { redirect_to static_files_url, notice: 'Static file was successfully destroyed.' }
+      format.html { redirect_to static_files_url, notice: 'コンテンツを削除しました' }
       format.json { head :no_content }
     end
   end

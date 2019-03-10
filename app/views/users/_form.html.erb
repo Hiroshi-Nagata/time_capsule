@@ -11,27 +11,36 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
+  <% if current_user.admin.admin? %>
+    <div class="field">
+      <%= form.label :user_id %>
+      <%= form.collection_select :user_id, user_options, :id, :name %>
+    </div>
+  <% else %>
+    <%= form.hidden_field :user_id %>
+  <% end %>
+  
+  <div class="field"><br>
+    <%= form.label :name %><br>
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= form.label :email %>
+  <div class="field"><br>
+    <%= form.label :email %><br>
     <%= form.text_field :email %>
   </div>
 
-  <div class="field">
-    <%= form.label :password %>
+  <div class="field"><br>
+    <%= form.label :password %><br>
     <%= form.text_field :password %>
   </div>
 
-  <div class="field">
-    <%= form.label :gender %>
-    <%= form.select_field :gender %>
+  <div class="field"><br>
+    <%= form.label :gender %><br>
+    <%= form.select :gender, User.gender.options %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="user_actions"><br><br>
+    <%= form.submit :class=>"user_edit_btn"%>
   </div>
 <% end %>

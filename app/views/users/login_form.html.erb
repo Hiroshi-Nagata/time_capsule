@@ -1,5 +1,16 @@
 <% provide(:title, "ログインフォーム") %>
 
+  <span class="success_msgs"> <% if notice %>
+    <p class="alert alert-success" id="notice">
+      <%= notice %> 
+    </p> <% end %> </span>
+    
+  <script>
+    $( document ).ready(function() {
+      $('#notice').fadeOut(3000);
+  });
+  </script>
+
 <h3 class="login_form-logo">Time Capsule</h3>
 
 <div class="form-body">

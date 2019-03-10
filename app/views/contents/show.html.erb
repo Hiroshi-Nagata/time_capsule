@@ -7,47 +7,27 @@
 <div class="content_show">
   <div class="content_show_image">
     <% if ['video/mp4', 'video/quicktime'].include?(@content.static_file.mime_type) %>
-      <video width="700px" height="472.5px" src="<%= content.static_file.content_file.url %>" controls></video>
-    <% elsif @content.static_file.mime_type == 'image/jpeg' %>
+      <video width="700px" height="472.5px" src="<%= @content.static_file.content_file.url %>" controls></video>
+    <% elsif ['image/jpeg', 'image/png', 'image/gif', 'image/bmp'].include?(@content.static_file.mime_type) %>
       <img width="700px" height="472.5px" src="<%= @content.static_file.content_file.url %>" alt="アップロードした画像"></img>
+    <% elsif ['audio/mp3', 'audio/mp4'].include?(@content.static_file.mime_type) %>
+      <audio width="200px" src="<%= @content.static_file.content_file.url %>" controls></audio>
     <% end %>
   </div>
   
   <div class="content_show_detail">
-  
-  <p>
-    <%= tm :content, :address %>
-    <%= @content.address.name %>
-  </p><br>
-  
-  <p>
-    <%= tm :content, :sender %>
-    <%= @content.sender %>
-  </p><br>
-  
-  <p>
-    <%= tm :content, :send_at %>
-    <%= simple_time(@content.send_at) %>
-  </p><br>
-  
-  <p>
-    <%= tm :content, :sent_at %>
-    <%= @content.sent_at %>
-  </p><br>
-  
-  <p>
-    <%= tm :content, :format %>
-    <%= @content.static_file.mime_type %>
-  </p><br>
-  
-  <p><%= tm :content, :text %></p>
-  <p class="content_text">
-    <%= @content.text %>
-  </p><br>
-  
-  <%= link_to '編集', edit_content_path(@content), class: 'content_btn content_btn_edit' %>
-<%= link_to 'Back', contents_path %>
-<%= link_to '削除', @content, class: 'content_btn content_btn_destroy', method: :delete, data: { confirm: 'このコンテンツを消去しますか?' } %>
+    <p>&emsp;&emsp;<%= tm :content, :address %> : <%= @content.address.name %></p><br>
+    <p>&emsp;<%= tm :content, :sender %> : <%= @content.sender %></p><br>
+    <p><%= tm :content, :send_at %> : <%= simple_time(@content.send_at) %></p><br>
+    <p><%= tm :content, :sent_at %> : <%= @content.sent_at %></p><br>
+    <p>&emsp;&emsp;<%= tm :content, :format %> : <%= @content.static_file.mime_type %></p><br>
+    <p><%= tm :content, :text %></p>
+    <p class="content_text"><%= @content.text %></p><br>
   </div>
 </div>
 
+<div class="content_show_link">
+  <%= link_to '編集', edit_content_path(@content), class: 'content_btn content_btn_edit' %>
+  <%= link_to 'Back', contents_path, class: 'content_btn content_btn_back' %>
+  <%= link_to '削除', @content, class: 'content_btn content_btn_destroy', method: :delete, data: { confirm: 'このコンテンツを消去しますか?' } %>
+</div>

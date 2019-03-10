@@ -20,52 +20,53 @@
     <%= form.hidden_field :user_id %>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <p>
-    <% if content.static_file.nil? %>
-      画像または動画がアップロードされていません。
-    <% elsif content.static_file.mime_type == 'video/mp4' %>
-      <video width="200px" src="<%= content.static_file.content_file.url %>"></video>
-    <% elsif content.static_file.mime_type == 'image/jpeg' %>
-      <img width="200px" src="<%= content.static_file.content_file.url %>" alt="アップロードした画像"></img>
-    <% end %>
-    <%= form.hidden_field :static_file_id %>
-    <%= form.hidden_field :content_id %>
-    <%= form.hidden_field :status %>
-  </p>
-  
-  <div class="field">
-    <%= form.label :text %>
-    <%= form.text_area :text %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address_id %>
-    <%= form.collection_select :address_id, address_options, :id, :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :sender %>
-    <%= form.text_field :sender %>
-  </div>
-
-  <div class="field">
-    <%= form.label :send_at %>
-    <%= form.datetime_select :send_at, include_blank: true %>
-  </div>
-
-  <% if content.received_at.present? %>
-    <div class="field">
-      <%= form.label :received_at %>
-      <%= content.received_at.to_s %>
+  <div class="content_edit">
+    <%= form.label :title %><br>
+    <div class="content_edit_title">
+      <%= form.text_field :title, class: "content_edit_title_text_field" %>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
+  
+    <div class="content_edit_body">
+      <div class="content_edit_image">
+        <% if content.static_file.nil? %>
+          コンテンツが投稿されていません
+        <% elsif ['video/mp4', 'video/quicktime'].include?(content.static_file.mime_type) %>
+          <video width="500px" height="337.5px" src="<%= content.static_file.content_file.url %>" controls></video>
+        <% elsif ['image/jpeg', 'image/png', 'image/gif', 'image/bmp'].include?(content.static_file.mime_type) %>
+          <img width="500px" height="337.5px" src="<%= content.static_file.content_file.url %>" alt="アップロードした画像"></img>
+        <% elsif ['audio/mp3', 'audio/mp4'].include?(content.static_file.mime_type) %>
+          <audio width="200px" src="<%= content.static_file.content_file.url %>" controls></audio>
+        <% end %>
+        <%= form.hidden_field :static_file_id %>
+        <%= form.hidden_field :content_id %>
+        <%= form.hidden_field :status %>
+      </div>
+      
+      <div class="content_edit_detail">
+        <%= form.label :address %><br>
+        <%= form.collection_select :address_id, address_options, :id, :name, {prompt: ""}, {class: "content_edit_address"} %><br><br>
+    
+        <%= form.label :sender %><br>
+        <%= form.text_field :sender, class: "content_edit_address" %><br><br>
+      
+        <%= form.label :send_at %><br>
+        <div class="input-group date datetimepicker">
+          <%= form.text_field :send_at, class: "form-control" %>
+         <span class="input-group-addon">
+             <span class="fa fa-calendar"></span>
+         </span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content_edit_text">
+      <%= form.label :text %><br>
+      <%= form.text_area :text,  class: "content_edit_text_area" %>
+    </div>
+  
+    <div>
+      <%= form.submit :class=>"content_edit_actions_btn" %>
+    </div>
+    
   </div>
 <% end %>

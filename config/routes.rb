@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   get '/xxx/:content_id' ,to: 'present#show'
   resources :addresses
   resources :users
+  get '/user', to: 'users#show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -2,11 +2,12 @@
 
     
 <div class="home">
-  <div class="contents-home">
-    <%= form_for @static_file, html: {class:'dropzone', id: "static_file-dropzone"} do |f| %>
+  <div class="movie_zone">
+    <%= form_for @static_file, html: {class:'dropzone', id: "static_file-dropzone1"} do |f| %>
       <div class="dz-message needsclick">
-        <h3>Drop file here</h3> or
-        <strong>Click</strong> to upload
+        <h2>動画 or ボイス or 画像を送る</h2> 
+        <h4>Drag & drop or Click here</h4>
+        <p class="Format">Format: mp4 quicktime mp3 jpg png gif bmp</p>
       </div>
       
       <div class="fallback">
@@ -19,7 +20,7 @@
       
     <% end %>
     
-    <a href="/contents/new?content%5Bstatic_file_id%5D=[response.itemId]" style="visibility:hidden" id="target">未来へ送る</a>
+    <a href="/contents/new?content%5Bstatic_file_id%5D=[response.itemId]" style="visibility:hidden" id="target1">未来へ送る</a>
     
   </div>
 </div>

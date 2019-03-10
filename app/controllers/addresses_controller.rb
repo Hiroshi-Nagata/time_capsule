@@ -12,7 +12,6 @@ class AddressesController < ApplicationController
   # GET /addresses/1.json
   def show
     render :layout => nil
-    # @address = Address.find_by(params[:id])
   end
 
   # GET /addresses/new
@@ -23,7 +22,6 @@ class AddressesController < ApplicationController
 
   # GET /addresses/1/edit
   def edit
-    # render :layout => nil
   end
 
   # POST /addresses
