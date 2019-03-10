@@ -2,3 +2,235 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* content */
+
+.content_detail{
+  width: 65%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.content_thumbnail{
+  float: right;
+  height: 274px;
+  width: 47.4%;
+  margin-bottom: 10px;
+  border: #000 ridge 1.5px;
+  border-left: 0;
+  
+  .thumbnail{
+    float: right;
+  }
+}
+
+.content_description{
+  float: left;
+  height: 274px;
+  width: 52.6%;
+  margin-bottom: 10px;
+  padding: 15px 15px 0 15px;
+  border: #000 ridge 1.5px;
+  border-right: 0;
+  
+  .content_title_index{
+    border-bottom: #000 solid 1px;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .content_btn_show{
+    background-color: #ff7f7f;
+    color: black;
+    font-size: 15px;
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px #000000;
+    margin-right: 15px;
+  }
+  
+  .content_btn_edit{
+    background-color: #7fff7f;
+    color: black;
+    font-size: 15px;
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px #000000;
+    margin-right: 15px;
+  }
+  
+  .content_btn_destroy{
+    background-color: #7f7fff;
+    color: black;
+    font-size: 15px;
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px #000000;
+  }
+}
+
+.content_btn:active{
+  box-shadow: none;
+  position: relative;
+  top: 3px;
+}
+
+.content_title_show{
+  font-size: 30px;
+  margin: 30px 50px 0 50px;
+  font-weight: bolder;
+  border-bottom: double;
+}
+  
+.content_show{
+  height: 100%;
+  margin: 40px 50px 0 50px;
+  position: relative;
+  
+  .content_show_detail{
+    float: left;
+    width: 40%;
+  }
+  
+  .content_show_image{
+    float: right;
+  }
+  
+  .content_text{
+    width: 700px;
+    word-break: break-all;
+    border: solid 1px;
+    padding: 8px;
+  }
+}
+  
+.content_show_link{
+  position: absolute;
+	bottom: 0;
+	margin: 0 50px 20px 50px;
+	
+	.content_btn_edit{
+    background-color: #7fff7f;
+    color: black;
+    font-size: 15px;
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px #000000;
+    margin-right: 15px;
+  }
+  
+  .content_btn_back{
+    background-color: #c0c0c0;
+    color: black;
+    font-size: 15px;
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px #000000;
+    margin-right: 15px;
+  }
+  
+  .content_btn_destroy{
+    background-color: #7f7fff;
+    color: black;
+    font-size: 15px;
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px #000000;
+    margin-left: 100px;
+  }
+}
+
+.content_edit{
+  height: 100%;
+  margin: 20px 50px 0 50px;
+  
+  .content_edit_title{
+    font-weight: bolder;
+    border-bottom: double;
+    font-size: 30px;
+    
+    .content_edit_title_text_field{
+      width: 100%;
+    }
+  }
+  
+  .content_edit_body{
+    height: 337.5px;
+    margin: 30px 150px 0 150px;
+    
+    .content_edit_detail{
+      float: left;
+      
+      .content_edit_address{
+        width: 500px;
+        height: 40px;
+      }
+      
+      .datetimepicker{
+        width: 200px;
+      }
+    }
+    
+    .content_edit_image{
+      float: right;
+    }
+  }
+  
+  .content_edit_text{
+    margin: 0 150px 0 150px;
+    
+    .content_edit_text_area{
+      width: 100%;
+      height: 150px;
+    }
+  }
+  
+  .content_edit_actions_btn{
+    float: right;
+    margin-top: 5px;
+    margin-right: 150px;
+    width: 200px;
+    background-color: #ff7f50;
+    color: black;
+    font-size: 15px;
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px #000000;
+  }
+}
+
+.content_edit_back{
+  float: left;
+  margin-top: 5px;
+  margin-left: 200px;
+  text-align: center;
+  width: 100px;
+  background-color: #98fb98;
+  color: black;
+  font-size: 15px;
+  display: inline-block;
+  padding: 5px 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px #000000;
+}
+
+.content_edit_actions_btn:active{
+  box-shadow: none;
+  position: relative;
+  top: 3px;
+}
+
+.content_edit_back:active{
+  box-shadow: none;
+  position: relative;
+  top: 3px;
+}

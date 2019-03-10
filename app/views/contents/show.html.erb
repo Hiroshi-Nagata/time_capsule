@@ -19,7 +19,7 @@
     <p>&emsp;&emsp;<%= tm :content, :address %> : <%= @content.address.name %></p><br>
     <p>&emsp;<%= tm :content, :sender %> : <%= @content.sender %></p><br>
     <p><%= tm :content, :send_at %> : <%= simple_time(@content.send_at) %></p><br>
-    <p><%= tm :content, :sent_at %> : <%= @content.sent_at %></p><br>
+    <p><%= tm :content, :sent_at %> : <%= simple_time(@content.sent_at) %></p><br>
     <p>&emsp;&emsp;<%= tm :content, :format %> : <%= @content.static_file.mime_type %></p><br>
     <p><%= tm :content, :text %></p>
     <p class="content_text"><%= @content.text %></p><br>

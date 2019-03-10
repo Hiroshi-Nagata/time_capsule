@@ -72,6 +72,7 @@ class ContentsController < ApplicationController
   # DELETE /contents/1
   # DELETE /contents/1.json
   def destroy
+    @content = Content.find(params[:id])
     @content.destroy
     respond_to do |format|
       format.html { redirect_to contents_url, notice: '消去しました' }

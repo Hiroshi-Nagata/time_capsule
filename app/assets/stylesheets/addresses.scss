@@ -1,3 +1,117 @@
 // Place all the styles related to the Addresses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* address */
+
+.address_index{
+  margin: 0 auto;
+  float: left;
+  height: 500px;
+  overflow: auto;
+  margin-left: 50px;
+}
+
+.address_show_link{
+  margin-top: 20px;
+  
+  .address_btn_edit{
+    background-color: #7fff7f;
+    color: black;
+    font-size: 15px;
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px #000000;
+    margin-right: 15px;
+  }
+  
+  .address_btn_destroy{
+    background-color: #7f7fff;
+    color: black;
+    font-size: 15px;
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px #000000;
+  }
+}
+
+.address_btn_edit:active{
+  box-shadow: none;
+  position: relative;
+  top: 5px;
+}
+
+.address_btn_destroy:active{
+  box-shadow: none;
+  position: relative;
+  top: 5px;
+}
+
+.address{
+  width: 480px;
+  height: 50px;
+  font-size: 30px;
+}
+
+.new_address_path{
+  display: block;
+  background-color: #f8f8ff;
+  width: 480px;
+  font-size: 50px;
+  margin-top: 10px;
+  border: #000 dashed 1px;
+  text-align :center;
+  margin-left: 50px;
+}
+
+.address_show{
+  float: right;
+  margin-right: 20px;
+  width: 60%;
+  height: 500px;
+  padding-left: 250px;
+}
+
+.address_edit_logo{
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 60px;
+}
+
+.address_edit_body{
+  height:400px;
+  background-color: #e6e6fa;
+  margin: 0 auto;
+  width: 700px;
+  border-radius: 40px;
+}
+
+.field{
+  margin-left: 160px;
+}
+
+.address_action{
+  text-align: center;
+
+  .address_edit_btn{
+    background-color: #4169e1;
+    width: 200px;
+    font-size: 20px;
+    padding: 10px;
+    color: white;
+    border-radius: 40px;
+    box-shadow: 0 5px #000000;
+  }
+}
+
+.address_edit_btn:active{
+  box-shadow: none;
+  position: relative;
+  top: 5px;
+}

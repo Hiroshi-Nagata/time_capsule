@@ -1,5 +1,7 @@
-<h1><%= t '.title', { address: tm(:address) } %></h1>
+<% provide(:title, "アドレスの登録") %>
 
-<%= render 'form', address: @address %>
+<h3 class="address_edit_logo"><%= t '.title', { address: tm(:address) } %></h3>
 
-<%= link_to 'Back', addresses_path %>
+<div class="address_edit_body">
+  <%= render 'form', address: @address %>
+</div>

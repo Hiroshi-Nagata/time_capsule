@@ -7,7 +7,7 @@ ja:
       title: '%{user}の編集'
   addresses:
     new:
-      title: '%{address}'
+      title: '%{address}の登録'
     index:
       title: '%{address}'
     edit:

@@ -1,3 +1,76 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* home */
+
+.header-home {
+  height:60px;
+  background:#00FFFF;
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  width: 100%;
+}
+
+.header-home-dami{
+  height: 60px;
+  margin-bottom: 30px;
+}
+
+.header-home-logo{
+  float:left;
+  font-weight: bold;
+  font-family: cursive;
+  margin: 15px 40px 15px 40px;
+  font-size: 20px;
+}
+
+.header-home-logo:hover{
+  background-color:#00FFFF;
+}
+
+li {
+  list-style:none;
+  float:left;
+  padding: 23px 33px 23px 20px;
+}
+
+.header-home-list:hover{
+  background-color:#00FFFF;
+}
+
+.home{
+  width: 70%;
+  margin: 0 auto;
+}
+
+.movie_zone{
+  .Format{
+    width: 100%;
+  }
+}
+
+#target1{
+  background-color: #7fff7f;
+  color: black;
+  font-size: 30px;
+  display: inline-block;
+  padding: 10px 40px;
+  border-radius: 10px;
+  box-shadow: 0 3px #000000;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform : translateX(-50%);
+  margin-top: 20px;
+}
+
+#target1:active{
+  box-shadow: none;
+  position: relative;
+  top: 5px;
+}
