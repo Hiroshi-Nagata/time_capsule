@@ -5,9 +5,11 @@
 <div class="present_show">
   <div class="present_image">
     <% if ['video/mp4', 'video/quicktime'].include?(@content.static_file.mime_type) %>
-      <video width="700px" height="472.5px" src="<%= content.static_file.content_file.url %>" controls></video>
-    <% elsif @content.static_file.mime_type == 'image/jpeg' %>
+      <video width="700px" height="472.5px" src="<%= @content.static_file.content_file.url %>" controls></video>
+    <% elsif ['image/jpeg', 'image/png', 'image/gif', 'image/bmp'].include?(@content.static_file.mime_type) %>
       <img width="700px" height="472.5px" src="<%= @content.static_file.content_file.url %>" alt="アップロードした画像"></img>
+    <% elsif ['audio/mp3', 'audio/mp4'].include?(@content.static_file.mime_type) %>
+      <audio width="200px" src="<%= @content.static_file.content_file.url %>" controls></audio>
     <% end %>
   </div>
   
